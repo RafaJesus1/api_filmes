@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header com filtros e busca -->
     <div class="header">
         <div class="header-content">
             <div class="filter-buttons">
@@ -23,14 +22,12 @@
         </div>
     </div>
 
-    <!-- Título principal -->
     <div class="main-title">
         <div class="title-box">
             Acervo de Filmes
         </div>
     </div>
 
-    <!-- Container dos filmes -->
     <div class="movies-container">
         <div class="loading" id="loading">Carregando filmes...</div>
         <div class="error-message" id="errorMessage"></div>
@@ -39,7 +36,6 @@
         <div class="movies-grid" id="moviesGrid"></div>
     </div>
 
-    <!-- Paginação -->
     <div class="pagination-container" id="paginationContainer" style="display: none;">
         <div class="pagination">
             <button class="page-btn" id="prevBtn" onclick="changePage(-1)">❮ Anterior</button>
@@ -50,27 +46,22 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer"></div>
 
     <script>
-        // Variáveis globais para controle
         let currentPage = 1;
         let totalPages = 1;
         let currentFilter = 'popular';
         let currentSearchTerm = '';
 
-        // Substitua pela sua chave da API do TMDB
         const API_KEY = '2e9fc863db067705b66461eb2f5eaa7f';
         const BASE_URL = 'https://api.themoviedb.org/3';
         const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w300';
 
-        // Carregar filmes populares ao iniciar
         window.addEventListener('DOMContentLoaded', () => {
             loadMovies();
         });
 
-        // Permitir pesquisa com Enter
         document.getElementById('searchInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 searchMovies();
@@ -96,7 +87,7 @@
                 }
                 
                 const data = await response.json();
-                totalPages = Math.min(data.total_pages, 500); // Limitar para performance
+                totalPages = Math.min(data.total_pages, 500); 
                 
                 if (data.results.length === 0 && page === 1) {
                     showNoResults(true);
@@ -117,7 +108,6 @@
         }
 
         function filterMovies(filter) {
-            // Atualizar botões ativos
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
@@ -135,11 +125,9 @@
             currentSearchTerm = searchTerm;
             currentPage = 1;
             
-            // Remover filtro ativo se estiver pesquisando
             if (searchTerm) {
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             } else {
-                // Se busca vazia, voltar ao filtro popular
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
                 document.querySelector('.filter-btn').classList.add('active');
                 currentFilter = 'popular';
@@ -240,4 +228,5 @@
         }
     </script>
 </body>
+
 </html>
