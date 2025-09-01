@@ -11,7 +11,6 @@
             position: relative;
         }
 
-        /* Header com busca e filtros */
         .header {
             background-color: #8a9ba8;
             padding: 20px 0;
@@ -92,7 +91,6 @@
             background-color: #f0f0f0;
         }
 
-        /* Título principal */
         .main-title {
             text-align: center;
             padding: 60px 0 80px 0;
@@ -108,7 +106,6 @@
             letter-spacing: 1px;
         }
 
-        /* Grid de filmes */
         .movies-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -183,12 +180,10 @@
             font-weight: bold;
         }
 
-        /* Filtros */
         .filters-container {
-            display: none; /* Filtros agora estão no header */
+            display: none; 
         }
 
-        /* Paginação */
         .pagination-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -245,7 +240,6 @@
             width: 100%;
         }
 
-        /* Estados de carregamento */
         .loading {
             text-align: center;
             color: #4a5f7a;
@@ -273,7 +267,6 @@
             display: none;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -323,6 +316,7 @@
                 height: 135px;
             }
         }
+
 
 
 
